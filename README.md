@@ -1,1 +1,1 @@
-# L-Shell
+# L-Shell(Linux Bash Shell)
