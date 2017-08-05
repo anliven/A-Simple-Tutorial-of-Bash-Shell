@@ -1,5 +1,5 @@
-#! /bin/sh
-echo "hello shell!" # 打印字符串“hello shell”
+#! /usr/bin/bash
+echo "hello shell!" # 打印字符串“hello shell!”
 
 
 
