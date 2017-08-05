@@ -1,5 +1,6 @@
 # L-Shell(Linux Bash Shell)
 
+### 测试环境信息
 ```shell
 [root@CentOS7 ~]# uname -a
 Linux CentOS7 3.10.0-514.el7.x86_64 #1 SMP Tue Nov 22 16:42:41 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux
