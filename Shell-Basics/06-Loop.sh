@@ -9,6 +9,11 @@ done
 
 for rmfile in *.txt; do rm $rmfile; echo "Delete $rmfile!"; done; # 写成一行的方式
 
+for filelist in `ls /root` # 循环显示/root目录下的文件及目录
+do
+  echo $filelist
+done
+
 
 # while循环
 num=0
