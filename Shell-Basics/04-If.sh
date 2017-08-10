@@ -4,11 +4,9 @@ var=$1 # 将脚本的第一个参数赋值给变量var
 
 if test $var # test - check file types and compare values
 then
-  if [ $var == "right" ] # “[]”是调用test命令的一种形式，"[]"两边必须加空格;
-  then
+  if [ $var == "right" ];then # “[]”是调用test命令的一种形式，"[]"两边必须加空格;
     echo "Right!"
-  elif test $var = "wrong" # 比较字符串时，“=”等价与“==”，两边必须加空格；
-  then
+  elif test $var = "wrong";then # 比较字符串时，“=”等价与“==”，两边必须加空格；
     echo "Wrong!"
   else
     echo "Nothing!"
@@ -21,12 +19,12 @@ fi
 
 
 
-#   # if/else流程控制
+#   ### if/else流程控制
 #   - elif语句和else语句是非必须语句，根据需要添加；
 #   - 条件下的执行体不能为空；
 #   
 #   
-#   # test命令
+#   ### test命令
 #   - Shell中的test命令用于检查某个条件是否成立，可以进行数值、字符和文件的测试
 #   - 通常用“[]”来表示条件测试。使用"[]"时，两边必须加空格;
 #   - 通过man命令获取test命令的详细信息；
@@ -74,7 +72,7 @@ fi
 #     test –t FD 文件描述符是在一个终端打开的
 #   
 #   
-#   #  “[]”与test命令 
+#   ###  “[]”与test命令 
 #   - 实际上“[]”是调用test命令的一种形式；
 #   - 左中括号“[”是系统的一个内置命令,存在路径是“/bin/[”,是调用test命令的标识；
 #   - 右中括号“]”是关闭条件判断的标识；
