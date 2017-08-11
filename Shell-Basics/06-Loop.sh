@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 # for循环
 for filename in t1 t2 t3

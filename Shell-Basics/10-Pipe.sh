@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 echo '##### Number of *.conf : '
 find /etc -name *.conf | grep system | wc -l

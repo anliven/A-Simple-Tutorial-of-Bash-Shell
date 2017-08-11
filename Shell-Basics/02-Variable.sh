@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 v1=test-variable_123 # 全局变量
 v2=12345

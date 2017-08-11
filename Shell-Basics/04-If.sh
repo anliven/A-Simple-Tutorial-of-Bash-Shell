@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 var=$1 # 将脚本的第一个参数赋值给变量var
 

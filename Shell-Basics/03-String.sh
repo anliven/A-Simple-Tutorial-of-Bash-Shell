@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 str="Shell"
 str2="Hello $str !"

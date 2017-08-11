@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 function Check()  # 使用function定义函数
 {

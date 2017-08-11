@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 pwd > 1.log # 输出重定向到指定文件
 date 1> 1.log # “>”与“1>”作用相同；覆盖指定文件的原有内容

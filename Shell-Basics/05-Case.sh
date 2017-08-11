@@ -1,14 +1,14 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 var=$1 # 将脚本的第一个参数赋值给变量var
 
 case $var in
-        right)
-        echo "Right!";;
-        wrong)
-        echo "Wrong!";;
-        nothing | *) # “|”逻辑或
-        echo "Nothing";;
+    right)
+    echo "Right!";;
+    wrong)
+    echo "Wrong!";;
+    nothing | *) # “|”逻辑或
+    echo "Nothing";;
 esac
 
 

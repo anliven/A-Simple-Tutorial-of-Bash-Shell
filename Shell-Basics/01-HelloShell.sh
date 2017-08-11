@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 echo "hello shell!" # 打印字符串“hello shell!”
 
 echo "Date： " `date` # 显示命令执行结果
