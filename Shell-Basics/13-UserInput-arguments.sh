@@ -22,7 +22,10 @@ do
   echo "\$@ Parameters : $param"
 done
 
-while [ -n "$1" ] # 依次读取当前shell脚本的所有输入参数
+
+
+### 依次读取当前shell脚本的所有输入参数
+while [ -n "$1" ] 
 do
   echo "参数为：$1, 参数个数为：$#"
   shift # shift命令将参数变量左移一个位置
