@@ -24,3 +24,26 @@ test3="12345678901234567890"
 echo "替换test3: " $test3
 echo '${var/substring/newstring},替换字符串：' ${test3/0/零} # 返回var中第一个substring被替换成newstring后的字符串
 echo '${var//substring/newstring},替换字符串：' ${test3//0/零} # 返回var中所有substring被替换成newstring后的字符串
+
+
+
+
+#   ### 特殊的替换
+#   
+#   ${var:-string}    
+#   - 若变量var值为空时，string作为${var:-string}的值；
+#   - 若变量var值不为空时，变量var的值作为${var:-string}的值；
+#   
+#   ${var:+string}    
+#   - 当变量var值为空时，变量var的值作为${var:-string}的值；
+#   - 当变量var值不为空时，string作为${var:-string}的值；
+#   
+#   ${var:=string}    
+#   - 若变量var值为空时，string作为${var:-string}的值，并且变量var也被赋值为string；
+#   - 若变量var值不为空时，变量var的值作为${var:-string}的值；
+#   - 可用于判断变量是否赋值，如果值为空则指定一个默认值；
+#   
+#   ${var:?string} 
+#   - 若变量var为空，则把string输出到标准错误中，并从脚本中退出； 
+#   - 若变量var不为空，变量var的值作为${var:-string}的值；
+#   - 可用于判断变量是否赋值；
