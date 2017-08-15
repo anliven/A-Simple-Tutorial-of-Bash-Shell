@@ -33,13 +33,17 @@ ls /root > /dev/null 2>&1 # 屏蔽stdout和stderr
 
 rm -rf [0-9].log
 
-# Here Document
+# Here-document
 cat << !
 abc
 123
 ABC
 !
 # 将两个delimiter(这里使用!符号)之间的内容(document) 作为输入传递给command
+
+# Here-strings
+teststr="This is a test"
+cat -n <<< $teststr
 
 
 
@@ -54,7 +58,7 @@ ABC
 #   ### 输出重定向
 #   - “command > file”：标准输出(stdout)重定向到指定文件，覆盖指定文件的原有内容
 #   - “command >> file”：标准输出(stdout)重定向到指定文件，追加内容到指定文件的末尾
-#   - “>”与“1>”作用相同
+#   - “>”等价于“1>”；“<”等价于“0<”；
 #   
 #   
 #   ### 输入重定向
@@ -72,13 +76,38 @@ ABC
 #   - “command >> file 2>&1”：追加内容到指定文件的末尾
 #   
 #   
-#   ### Here Document
+#   ### Here-document
 #   - 特殊的重定向方式，用来将输入重定向到一个交互式Shell脚本
 #   - 作用是将两个delimiter之间的内容(document)作为输入传递给command
 #   - 开始的delimiter前后的空格会被忽略
 #   - 结尾的delimiter必须顶格写，前后不能有任何字符，包括空格和 tab 缩进
 #   
 #   
+#   ### Here-strings
+#   - <<<,与Here-document类似
+#   
+#   
 #   ### “/dev/null”文件
 #   - 写入到“/dev/null”文件的内容都会被丢弃；
 #   - 也无法从该文件读取内容；
+
+
+
+#   ### 总结
+#   >	  输出重定向，先清空原内容，再添加内容
+#   >>	  输出追加重定向，直接追加内容
+#   <	  输入重定向，先清空原内容，再添加内容
+#   <<	  输入追加重定向，直接追加内容
+#   
+#   :> file                清空文件，如果文件不存在则创建空文件，等价于“> file”；
+#   command >| file        强制重定向，强制重写已经存在的文件
+#   command <file1 >file2  将stdin重定向到file1，将stdout重定向到file2
+#   
+#   command m>&n   把输出到文件描述符m的信息重定向到文件描述符n；
+#   command m<&n   文件描述符n的信息输入重定向到文件描述符m；
+#   
+#   command >&n    把标准输出重定向到文件描述符n；
+#   command <&n    标准输入来自文件描述符n；
+#   
+#   command >&-    关闭标准输出；
+#   command <&-    关闭标准输入；

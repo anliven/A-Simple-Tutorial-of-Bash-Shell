@@ -1,8 +1,5 @@
 #! /usr/bin/bash
 
-
-#### Check Account
-
 UserName="xxx"
 
 if [ "&UserName" != `whoami` ]; then
