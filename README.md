@@ -1,4 +1,4 @@
-# L-Shell(Linux Bash Shell)
+# A-Simple-Tutorial-of-Bash-Shell
 
 ### 测试环境信息
 ```shell
