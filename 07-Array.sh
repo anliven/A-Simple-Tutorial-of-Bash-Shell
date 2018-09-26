@@ -33,6 +33,24 @@ echo "数组test0中元素的个数为：" ${#test0[@]}
 echo "数组test1中元素的个数为：" ${#test1[*]}
 echo "数组test2中下标为2的元素长度为：" ${#test2[2]}
 
+
+# 标准for循环遍历数组
+for(( i=0;i<${#test2[@]};i++))
+do
+  echo "Array-test2 value: "  ${test2[i]}
+done;
+# for-in循环遍历数组
+for element in ${test2[@]}
+do
+  echo "Array-test2 value: "  $element
+done
+# for-in循环遍历数组（带数组下标）
+for i in "${!test2[@]}";   
+do   
+    printf "Array-test2 index-%s:\t%s\n" "$i" "${test2[$i]}"  
+done 
+
+
 test3=(aaa bbb ccc ddd eee fff ggg)
 echo '读取数组中的所有元素 ${test3[*]}: ' ${test3[*]}
 unset test3[0] # 删除指定元素
@@ -41,7 +59,23 @@ unset test3 # 删除所有元素
 echo '读取数组中的所有元素 ${test3[*]}: ' ${test3[*]}
 
 
+declare -A assArray # 定义关联数组
+assArray=([1st]=aaa [2nd]=bbb) # 添加元素到关联数组
+assArray[3rd]=ccc # 添加元素到关联数组
 
+echo '读取关联数组指定索引的值 ${assArray[1st]}: ' ${assArray[1st]}
+echo '读取关联数组的下标列表 ${!assArray[*]}: ' ${!assArray[*]}
+echo '读取关联数组的下标列表 ${!assArray[@]}: ' ${!assArray[@]}
+echo '读取关联数组的所有的值 ${assArray[*]}: ' ${assArray[*]}
+echo '读取关联数组的所有的值 ${assArray[@]}: ' ${assArray[@]}
+echo '读取关联数组键值对的个数 ${#assArray[*]}: ' ${#assArray[*]}
+echo '读取关联数组键值对的个数 ${#assArray[@]}: ' ${#assArray[@]}
+
+# 读取关联数组的所有键值对
+for key in ${!assArray[*]}
+do
+  echo "关联数组键值对  ${key} ：${assArray[$key]}"
+done
 
 
 #   ### 定义数组
@@ -69,26 +103,3 @@ echo '读取数组中的所有元素 ${test3[*]}: ' ${test3[*]}
 #   - 关联数组的下标和值一一对应，称为键值对；键是唯一的，值可以不唯一；
 #   - 使用关联数组之前，需要使用“declare -A 变量名”命令显示声明为关联数组；
 #   - 关联数组的操作语法和数组的操作语法基本一致；
-
-
-
-
-
-declare -A assArray # 定义关联数组
-assArray=([1st]=aaa [2nd]=bbb) # 添加元素到关联数组
-assArray[3rd]=ccc # 添加元素到关联数组
-
-echo '读取关联数组指定索引的值 ${assArray[1st]}: ' ${assArray[1st]}
-echo '读取关联数组的下标列表 ${!assArray[*]}: ' ${!assArray[*]}
-echo '读取关联数组的下标列表 ${!assArray[@]}: ' ${!assArray[@]}
-echo '读取关联数组的所有的值 ${assArray[*]}: ' ${assArray[*]}
-echo '读取关联数组的所有的值 ${assArray[@]}: ' ${assArray[@]}
-echo '读取关联数组键值对的个数 ${#assArray[*]}: ' ${#assArray[*]}
-echo '读取关联数组键值对的个数 ${#assArray[@]}: ' ${#assArray[@]}
-
-
-# 读取关联数组的所有键值对
-for key in ${!assArray[*]}
-do
-  echo "${key} ：${assArray[$key]}"
-done
